@@ -7,25 +7,21 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
-            android:title="Home"
-            android:onClick="ClickHome"/>
+            android:title="Home" />
         <item
             android:id="@+id/navigation_info"
             android:icon="@drawable/info"
-            android:title="Info"
-            android:onClick="ClickInfo"/>
+            android:title="Info" />
         <item
             android:id="@+id/navigation_about"
             android:icon="@drawable/about"
-            android:title="About"
-            android:onClick="ClickAbout"/>
+            android:title="About" />
     </group>
     <item android:title="System">
         <menu>
             <item android:id="@+id/nav_logout"
                 android:icon="@drawable/logout"
-                android:title="Logout"
-                android:onClick="ClickLogout"/>
+                android:title="Logout"/>
         </menu>
     </item>
 </menu>
