@@ -36,7 +36,6 @@
         <Button
             android:id="@+id/blooddrop"
             style="@style/AudioFileInfoOverlayText"
-            android:id="@+id/donatenow"
             android:layout_width="225dp"
             android:layout_height="350dp"
             android:layout_centerHorizontal="true"
