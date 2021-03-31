@@ -24,11 +24,19 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Button buttonInfo = findViewById(R.id.info);
+        Button donatenow = findViewById(R.id.donatenow);
         drawerLayout = findViewById(R.id.drawer_layout);
         buttonInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, Info.class);
+                startActivity(intent);
+            }
+        });
+        donatenow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, PopActivity.class);
                 startActivity(intent);
             }
         });

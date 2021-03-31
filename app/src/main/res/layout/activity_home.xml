@@ -34,7 +34,7 @@
             android:textColor="#fff"
             android:textSize="25dp" />
         <Button
-            android:id="@+id/imageVIew"
+            android:id="@+id/donatenow"
             android:layout_width="225dp"
             android:layout_height="350dp"
             android:layout_centerHorizontal="true"
