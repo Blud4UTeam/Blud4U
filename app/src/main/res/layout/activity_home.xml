@@ -21,32 +21,33 @@
             android:id="@+id/info"
             style="@style/AudioFileInfoOverlayText"
             android:layout_width="100dp"
-            android:layout_height="150dp"
+            android:layout_height="140dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="525dp"
+            android:layout_marginTop="500dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/drop_of_blood"
+            android:background="@drawable/blooddrop"
             android:fontFamily="@font/opensans_light"
             android:padding="5dp"
             android:text="\nInFo"
-            android:textColor="#fff"
+            android:textColor="#212f3c"
             android:textSize="30dp" />
 
         <Button
-            android:id="@+id/blooddrop"
+            android:id="@+id/donatenow"
             style="@style/AudioFileInfoOverlayText"
-            android:layout_width="225dp"
+            android:layout_width="300dp"
             android:layout_height="350dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="140dp"
-            android:background="@drawable/blooddrop"
+            android:textAlignment="gravity"
+            android:background="@drawable/blood_transfusion"
             android:fontFamily="@font/opensans_light"
             android:padding="5dp"
-            android:text=" \n \n \n  Donate \n Now"
-            android:textColor="#fff"
-            android:textSize="40dp" />
+            android:text="Donate \n Now"
+            android:textColor="#212f3c"
+            android:textSize="30dp" />
 
         <TextView
             style="@style/AudioFileInfoOverlayText"
