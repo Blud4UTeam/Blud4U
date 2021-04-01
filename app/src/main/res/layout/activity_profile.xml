@@ -167,7 +167,8 @@
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textStyle="bold"
                                 />
-                        </LinearLayout><LinearLayout
+                        </LinearLayout>
+                        <LinearLayout
                         android:layout_marginTop="25dp"
                         android:orientation="horizontal"
                         android:paddingLeft="25dp"
@@ -218,7 +219,7 @@
                         android:layout_height="wrap_content"
                         android:text="Sign out"
                         android:textColor="@color/white"
-                        android:background="@drawable/buttonstyle"
+                        android:background="@drawable/rounded_corner"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="130dp"
                         android:layout_marginTop="500dp"
