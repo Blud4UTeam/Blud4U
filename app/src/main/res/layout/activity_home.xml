@@ -56,8 +56,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/opensans_light"
-            android:text="You Can Donate in....."
+            android:text="     You Can Donate in....   "
             android:textColor="@color/black"
+            android:background="@drawable/rounded_edittext"
             android:textSize="25dp">
 
         </TextView>
