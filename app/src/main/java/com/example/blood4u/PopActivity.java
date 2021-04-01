@@ -3,11 +3,16 @@ package com.example.blood4u;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
@@ -50,7 +55,7 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop);
-
+        createNotificationChannel();
 
         firebaseAuth= FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() == null){
@@ -88,9 +93,28 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
         Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_LONG).show();
 
     }
+
+    private void alarmManager(){
+        Intent intent = new Intent(this, ReminderBroadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonClick = System.currentTimeMillis();
+
+        long tenSecondsInMillis = 1000 * (60*60*24*30*3);
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP,
+                timeAtButtonClick + tenSecondsInMillis,
+                pendingIntent);
+
+    }
+
     @Override
     public void onClick(View view) {
         if (view==btnsave1){
+            alarmManager();
+
             if (imagePath1 == null) {
 
                 Drawable drawable = this.getResources().getDrawable(R.drawable.person);
@@ -127,6 +151,19 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(PopActivity.this, "Profile picture uploaded", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "BLud4U Remind Notification";
+            String description = "You can give blood now";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("notifyBud", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
     //bottomnavigationbar copy start from this line
