@@ -23,7 +23,7 @@ public class HomeActivity extends MainActivity2 {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Button buttonDonatenow = findViewById(R.id.blooddrop);
+        Button buttonDonatenow = findViewById(R.id.donatenow);
         Button buttonInfo = findViewById(R.id.info);
         Button donatenow = findViewById(R.id.donatenow);
         drawerLayout = findViewById(R.id.drawer_layout);
