@@ -62,5 +62,14 @@
             android:textSize="25dp">
 
         </TextView>
+
+        <Button
+            android:id="@+id/profilbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="profile"
+            >
+
+        </Button>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
