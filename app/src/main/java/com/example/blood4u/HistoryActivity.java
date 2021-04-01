@@ -86,9 +86,6 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
                     profileNum.setText(userProfile.getUserNum());
 
 
-
-
-
                 } catch (NullPointerException e) {
                     Toast.makeText(HistoryActivity.this, "Cannot Find Profile Please Re sign in again.",
                             Toast.LENGTH_SHORT).show();
