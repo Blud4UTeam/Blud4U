@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -126,4 +128,29 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
             }
         });
     }
+
+    //bottomnavigationbar copy start from this line
+    BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.id.navigation_home:
+                            Intent home_intent = new Intent(PopActivity.this,HomeActivity.class);
+                            startActivity(home_intent);
+                            break;
+                        case R.id.navigation_setting:
+                            Intent search_intent = new Intent(PopActivity.this, HomeActivity.class);
+                            startActivity(search_intent);
+                            break;
+                        case R.id.navigation_Profile:
+                            Intent profile_intent = new Intent(PopActivity.this, ProfileActivity.class);
+                            startActivity(profile_intent);
+                            break;
+
+                        // not finished
+                    }
+                    return false;
+                }
+            };
+    //bottomnavigationbar copy finish at this line
 }

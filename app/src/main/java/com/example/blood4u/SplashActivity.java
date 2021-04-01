@@ -28,9 +28,7 @@ public class SplashActivity extends AppCompatActivity {
 
         //assigning variable
          ivlogo = findViewById(R.id.logo);
-         ivTop = findViewById(R.id.iv_top);
          ivBeat = findViewById(R.id.iv_beat);
-         ivBottom = findViewById(R.id.iv_bottom);
          text = findViewById(R.id.text_view);
         // Initialize object animator
         ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(

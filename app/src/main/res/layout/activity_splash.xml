@@ -3,19 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/bg2"
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/iv_top"
-        android:src="@drawable/ic_top_vector"
-        android:layout_alignParentTop="true"
-        android:adjustViewBounds="true"
-        />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Blood4U"
+            android:text="Blud4U"
             android:textColor="#D75A4A"
             android:textSize="48sp"
             android:textStyle="bold" />
@@ -51,12 +41,6 @@
             android:adjustViewBounds="true" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/iv_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ic_bottom_vector" />
+
 
 </RelativeLayout>
