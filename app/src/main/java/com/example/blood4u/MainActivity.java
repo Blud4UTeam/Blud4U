@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG2, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Create account failed",
+                            Toast.makeText(MainActivity.this, "Create account failed. Check if you use a used email.",
                                     Toast.LENGTH_SHORT).show();
                         }
 
