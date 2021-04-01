@@ -27,6 +27,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class PopActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
@@ -69,12 +72,15 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
 
     }
 
+
     private void information(){
         String date = EditTextDate.getText().toString().trim();
         String location = EditTextLocation.getText().toString().trim();
         String blooddonate = EditTextnum.getText().toString().trim();
 
         Information information = new Information(date, location, blooddonate);
+
+
         FirebaseUser user1 = firebaseAuth.getCurrentUser();
         databaseReference.child(user1.getUid()).setValue(information);
         Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_LONG).show();
