@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--bottomnavigationbar copy starts here-->
+<?xml version="1.0" encoding="utf-8"?><!--bottomnavigationbar copy starts here-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    >
+    tools:context=".HomeActivity">
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -22,7 +21,7 @@
             android:background="@color/colorAccent"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
-            app:menu="@menu/menu_rscfile"/>
+            app:menu="@menu/menu_rscfile" />
         <!--bottomnavigationbar copy ends from here-->
 
         <Button
@@ -49,25 +48,26 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="140dp"
-            android:textAlignment="gravity"
             android:background="@drawable/blood_transfusion"
             android:fontFamily="@font/opensans_light"
             android:padding="5dp"
             android:text="Donate \n Now"
+            android:textAlignment="gravity"
             android:textColor="#212f3c"
             android:textSize="30dp" />
 
         <TextView
+            android:id="@+id/youcandonate"
             style="@style/AudioFileInfoOverlayText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
+            android:background="@drawable/rounded_edittext"
             android:fontFamily="@font/opensans_light"
             android:text="     You Can Donate in....   "
             android:textColor="@color/black"
-            android:background="@drawable/rounded_edittext"
-            android:textSize="25dp">
-        </TextView>
+            android:textSize="25dp"></TextView>
+
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

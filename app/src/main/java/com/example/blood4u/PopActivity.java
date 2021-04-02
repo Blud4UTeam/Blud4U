@@ -38,10 +38,11 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
     private EditText EditTextDate;
     private EditText EditTextLocation;
     private EditText EditTextnum;
-    private  Button btnsave1;
+    private Button btnsave1;
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
     private static int PICK_IMAGE = 123;
+    HomeActivity donateTimeStuff = new HomeActivity();
     Uri imagePath1;
     BottomNavigationView bottomNavigation;
 
@@ -51,19 +52,19 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_pop);
         createNotificationChannel();
 
-        firebaseAuth= FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() == null){
+        firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() == null) {
             finish();
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        EditTextDate = (EditText)findViewById(R.id.EditTextDate);
-        EditTextLocation = (EditText)findViewById(R.id.EditTextLocation);
-        EditTextnum = (EditText)findViewById(R.id.EditTextBloodDoante);
+        EditTextDate = (EditText) findViewById(R.id.EditTextDate);
+        EditTextLocation = (EditText) findViewById(R.id.EditTextLocation);
+        EditTextnum = (EditText) findViewById(R.id.EditTextBloodDoante);
 
 
-        btnsave1=(Button)findViewById(R.id.btnSaveButton1);
-        FirebaseUser user1=firebaseAuth.getCurrentUser();
+        btnsave1 = (Button) findViewById(R.id.btnSaveButton1);
+        FirebaseUser user1 = firebaseAuth.getCurrentUser();
         btnsave1.setOnClickListener(this);
 
 
@@ -76,7 +77,7 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
     }
 
 
-    private void information(){
+    private void information() {
         String date = EditTextDate.getText().toString().trim();
         String location = EditTextLocation.getText().toString().trim();
         String blooddonate = EditTextnum.getText().toString().trim();
@@ -90,7 +91,7 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
 
     }
 
-    private void alarmManager(){
+    private void alarmManager() {
         Intent intent = new Intent(this, ReminderBroadcast.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
@@ -98,7 +99,7 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
 
         long timeAtButtonClick = System.currentTimeMillis();
 
-        long tenSecondsInMillis = 1000 * (60*60*24*30*3);
+        long tenSecondsInMillis = 1000 * (60 * 60 * 24 * 30 * 3);
 
         alarmManager.set(AlarmManager.RTC_WAKEUP,
                 timeAtButtonClick + tenSecondsInMillis,
@@ -108,20 +109,19 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        if (view==btnsave1){
+        if (view == btnsave1) {
             alarmManager();
-
+            donateTimeStuff.donateTimeCountDown();
             if (imagePath1 == null) {
 
                 Drawable drawable = this.getResources().getDrawable(R.drawable.person);
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.person);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.person);
                 // openSelectProfilePictureDialog();
                 information();
                 // sendUserData();
                 finish();
                 startActivity(new Intent(PopActivity.this, HistoryActivity.class));
-            }
-            else {
+            } else {
                 information();
                 sendUserData();
                 finish();
@@ -165,10 +165,11 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
     //bottomnavigationbar copy start from this line
     BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()) {
                         case R.id.navigation_home:
-                            Intent home_intent = new Intent(PopActivity.this,HomeActivity.class);
+                            Intent home_intent = new Intent(PopActivity.this, HomeActivity.class);
                             startActivity(home_intent);
                             break;
                         case R.id.navigation_setting:
