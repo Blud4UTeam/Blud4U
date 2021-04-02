@@ -1,8 +1,5 @@
 package com.example.blood4u;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,15 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends MainActivity2 {
     androidx.drawerlayout.widget.DrawerLayout drawerLayout;
-
+    BottomNavigationView bottomNavigation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +28,6 @@ public class HomeActivity extends MainActivity2 {
             }
         });
 
-//        buttonDonatenow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(HomeActivity.this, .class);
-//                startActivity(intent);
-//            }
-//        });
-
         donatenow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +37,7 @@ public class HomeActivity extends MainActivity2 {
         });
 
         //bottomnavigationbar copy start from this line
+        bottomNavigation = findViewById(R.id.bottom_navigation);
         BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -60,7 +47,7 @@ public class HomeActivity extends MainActivity2 {
                                 startActivity(home_intent);
                                 break;
                             case R.id.navigation_setting:
-                                Intent search_intent = new Intent(HomeActivity.this, HomeActivity.class);
+                                Intent search_intent = new Intent(HomeActivity.this, Setting.class);
                                 startActivity(search_intent);
                                 break;
                             case R.id.navigation_Profile:
@@ -73,5 +60,6 @@ public class HomeActivity extends MainActivity2 {
                     }
                 };
         //bottomnavigationbar copy finish at this line
+        bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
     }
 }

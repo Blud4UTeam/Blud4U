@@ -1,20 +1,18 @@
 package com.example.blood4u;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnSuccessListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,10 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class HistoryActivity extends AppCompatActivity implements View.OnClickListener {
     private DatabaseReference databaseReference;
@@ -41,6 +35,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
     private Bitmap bitmap;
     Uri imagePath;
     private Button d1;
+    BottomNavigationView bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +84,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
 
 
                 } catch (NullPointerException e) {
-                    Toast.makeText(HistoryActivity.this, "Cannot Find Profile Please Re sign in again.",
+                    Toast.makeText(HistoryActivity.this, "Cannot Find Profile Please sign in again.",
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -98,7 +93,8 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(HistoryActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
-
+        bottomNavigation = findViewById(R.id.bottom_navigation);
+        bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
     }
 
 
@@ -118,7 +114,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
                             startActivity(home_intent);
                             break;
                         case R.id.navigation_setting:
-                            Intent search_intent = new Intent(HistoryActivity.this, HomeActivity.class);
+                            Intent search_intent = new Intent(HistoryActivity.this, Setting.class);
                             startActivity(search_intent);
                             break;
                         case R.id.navigation_Profile:

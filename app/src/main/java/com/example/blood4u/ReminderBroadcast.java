@@ -22,8 +22,8 @@ public class ReminderBroadcast extends BroadcastReceiver {
         @SuppressLint("WrongConstant") NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "notifyBud")
                 .setSmallIcon(R.drawable.blooddrop128)
                 .setColor(ContextCompat.getColor(context, R.color.red))
-                .setContentTitle("Remind")
-                .setContentText("you can give your blood now")
+                .setContentTitle("Blood donation Reminder")
+                .setContentText("You can donate your blood now. Don't forget to prepare yourself!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pending)
                 .setAutoCancel(true);

@@ -50,7 +50,7 @@ public class SplashActivity extends AppCompatActivity {
         objectAnimator.start();
 
         //set animate text
-        animText("Blood4U");
+        animText("Blud4U");
         //initialize handler
         new Handler().postDelayed(new Runnable() {
             @Override

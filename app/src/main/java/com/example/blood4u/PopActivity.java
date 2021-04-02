@@ -1,8 +1,5 @@
 package com.example.blood4u;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -14,14 +11,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,9 +30,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class PopActivity extends AppCompatActivity implements View.OnClickListener {
@@ -49,7 +43,7 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
     private StorageReference storageReference;
     private static int PICK_IMAGE = 123;
     Uri imagePath1;
-
+    BottomNavigationView bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +69,8 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
 
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
+        bottomNavigation = findViewById(R.id.bottom_navigation);
+        bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
 
     }
@@ -90,7 +86,7 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
 
         FirebaseUser user1 = firebaseAuth.getCurrentUser();
         databaseReference.child(user1.getUid()).setValue(information);
-        Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Your donation has been booked", Toast.LENGTH_LONG).show();
 
     }
 
@@ -155,8 +151,8 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "BLud4U Remind Notification";
-            String description = "You can give blood now";
+            CharSequence name = "BLud4U Reminder Notification";
+            String description = "You can donate your blood now. Don't forget to prepare yourself!";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel("notifyBud", name, importance);
             channel.setDescription(description);
@@ -176,7 +172,7 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
                             startActivity(home_intent);
                             break;
                         case R.id.navigation_setting:
-                            Intent search_intent = new Intent(PopActivity.this, HomeActivity.class);
+                            Intent search_intent = new Intent(PopActivity.this, Setting.class);
                             startActivity(search_intent);
                             break;
                         case R.id.navigation_Profile:

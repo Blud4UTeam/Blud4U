@@ -167,7 +167,7 @@ public class ProfileActivity extends AppCompatActivity {
                             startActivity(home_intent);
                             break;
                         case R.id.navigation_setting:
-                            Intent search_intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                            Intent search_intent = new Intent(ProfileActivity.this, Setting.class);
                             startActivity(search_intent);
                             break;
                         case R.id.navigation_Profile:
