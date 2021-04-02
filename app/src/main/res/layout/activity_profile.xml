@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity"
+
+
     >
 
     <FrameLayout
@@ -61,12 +63,16 @@
                     android:id="@+id/profile_layout"
                     android:layout_width="350dp"
                     android:layout_height="550dp"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
                     android:layout_marginTop="100dp"
                     android:background="@color/white"
                     android:elevation="4dp"
-                    android:paddingBottom="24dp">
+                    android:paddingBottom="24dp"
+                    android:layout_alignParentStart="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -101,6 +107,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/name"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
                                 android:textStyle="bold"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:inputType="textPersonName|textCapSentences"
@@ -123,6 +132,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Gender"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -143,6 +155,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Birth day"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textStyle="bold"
                                 />
@@ -163,6 +178,9 @@
                                 android:id="@+id/profile_bloodtype_textView"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
                                 android:text="Blood type"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textStyle="bold"
@@ -183,6 +201,9 @@
                         <TextView
                             android:id="@+id/profile_blooddonation_textView"
                             android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_height="wrap_content"
                             android:text="Number of blood donation"
                             android:textColor="@color/colorPrimaryDark"
@@ -206,6 +227,7 @@
                                 android:id="@+id/textViewEmailAdress"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
                                 android:text="@string/email_address"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="20sp" />
