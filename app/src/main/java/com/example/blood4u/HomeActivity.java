@@ -7,10 +7,11 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends MainActivity2 {
+public class HomeActivity extends AppCompatActivity {
     androidx.drawerlayout.widget.DrawerLayout drawerLayout;
     BottomNavigationView bottomNavigation;
     @Override
