@@ -1,6 +1,8 @@
 package com.example.blood4u;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error, your email and/or password is empty",
                             Toast.LENGTH_SHORT).show();
                 }
+                SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("PopActivity", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.putInt("KEY_NAME", 0);
+                editor.apply();
             }
         });
         login_but.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error, your email and/or password is empty",
                             Toast.LENGTH_SHORT).show();
                 }
+                SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("PopActivity", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.putInt("KEY_NAME", 0);
+                editor.apply();
             }
         });
 

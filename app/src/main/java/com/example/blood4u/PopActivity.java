@@ -4,7 +4,9 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -42,6 +44,8 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
     private static int PICK_IMAGE = 123;
+    public static AlarmManager alarmManager;
+    public static PendingIntent pendingIntent;
     HomeActivity donateTimeStuff = new HomeActivity();
     Uri imagePath1;
     BottomNavigationView bottomNavigation;
@@ -91,19 +95,16 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
 
     }
 
-    private void alarmManager() {
+    private void alarmManager() {            //set alarm to sent notification everyday until day 90
         Intent intent = new Intent(this, ReminderBroadcast.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         long timeAtButtonClick = System.currentTimeMillis();
 
-        long tenSecondsInMillis = 1000 * (60 * 60 * 24 * 30 * 3);
-
-        alarmManager.set(AlarmManager.RTC_WAKEUP,
-                timeAtButtonClick + tenSecondsInMillis,
-                pendingIntent);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, timeAtButtonClick + 3000,
+                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
 
     }
 
@@ -111,7 +112,12 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         if (view == btnsave1) {
             alarmManager();
-            donateTimeStuff.donateTimeCountDown();
+            //set counting day to 90 when click Done.
+            SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("PopActivity", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            editor.putInt("KEY_NAME", 91);
+            editor.apply();
+            //end
             if (imagePath1 == null) {
 
                 Drawable drawable = this.getResources().getDrawable(R.drawable.person);
