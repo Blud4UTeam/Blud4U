@@ -39,6 +39,6 @@
     <string name="Donate_now">Enter your donation information</string>
     <string name="Donate_date">Enter your donation date</string>
     <string name="Donate_place">Enter your donation place</string>
-
-
+    <string name="CreateBy">Created By : Blud4U Developers</string>
+    <string name="TestBy">Tested By : Blud4U Developers</string>
 </resources>

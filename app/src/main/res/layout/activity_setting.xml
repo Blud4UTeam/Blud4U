@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg2"
     tools:context=".Setting">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,22 +16,6 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="150dp">
         </ImageView>
-        <androidx.appcompat.widget.SwitchCompat
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="247.5dp"
-            android:layout_marginLeft="280dp"
-            >
-        </androidx.appcompat.widget.SwitchCompat>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Change Language [EN/TH]"
-            android:fontFamily="@font/opensans_bold"
-            android:layout_marginTop="250dp"
-            android:layout_marginLeft="30dp"
-            >
-        </TextView>
         <Button
             android:id="@+id/aboutus"
             android:layout_width="400dp"
@@ -44,15 +27,35 @@
             android:layout_marginLeft="5dp"
             >
         </Button>
-        <Button
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="400dp"
-            android:background="@drawable/buttonstyle_white"
-            android:text="About app"
-            android:fontFamily="@font/opensans_light"
-            android:layout_marginTop="380dp"
-            android:layout_marginLeft="5dp">
-
-        </Button>
+            android:text="App Version : 1.0.0"
+            android:fontFamily="@font/opensans"
+            android:layout_marginTop="375dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CreateBy"
+            android:fontFamily="@font/opensans"
+            android:layout_marginTop="425dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TestBy"
+            android:fontFamily="@font/opensans"
+            android:layout_marginTop="475dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            >
+        </TextView>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
