@@ -34,7 +34,7 @@ public class ReminderBroadcast extends BroadcastReceiver {
         //vv NotificationManager for build notification.
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         //vv If order for check counting day on notification if day count to 0 stop alarm.
-        if (counter > 1) {
+        if (counter % 7 == 0 && counter != 0) {
             builder.setContentText("You can donate your blood in " + String.valueOf(counter-1) + " Day");
             notificationManager.notify(200, builder.build());
             editor.putInt("KEY_NAME", counter-1);
@@ -42,11 +42,9 @@ public class ReminderBroadcast extends BroadcastReceiver {
         } else if (counter == 1) {
             builder.setContentText("You can donate your blood now. Don't forget to prepare yourself!");
             notificationManager.notify(200, builder.build());
-            editor.putInt("KEY_NAME", counter-1);
-            editor.apply();
-        } else if (counter == 0) {
             PopActivity.alarmManager.cancel(PopActivity.pendingIntent);
-            editor.putInt("KEY_NAME", 91);
+        } else {
+            editor.putInt("KEY_NAME", counter-1);
             editor.apply();
         }
     }

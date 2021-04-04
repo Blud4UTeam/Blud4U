@@ -104,7 +104,7 @@ public class PopActivity extends AppCompatActivity implements View.OnClickListen
         long timeAtButtonClick = System.currentTimeMillis();
 
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, timeAtButtonClick + 3000,
-                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
+                AlarmManager.INTERVAL_DAY, pendingIntent);
 
     }
 

@@ -28,23 +28,20 @@ public class HomeActivity extends AppCompatActivity {
         Button donatenow = findViewById(R.id.donatenow);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        //notify variable for edit counting the day.
+        //notify variable for counting the day.
         SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("PopActivity", Context.MODE_PRIVATE);
         int count = sharedPrefs.getInt("KEY_NAME", 0);
-        SharedPreferences.Editor editor = sharedPrefs.edit();
         //end
         //set the day before user can donate blood. >> show in top of HomeActivity.
-        if (count >= 91) {          //before click Done to donate.
+        if (count == 1) {    //when 0 day before user can donate.
             String txt = "   You can donate blood now.   ";
             TextView donateIn = (TextView) findViewById(R.id.youcandonate);
             donateIn.setText(txt);
-        } else if (count == 0) {    //when 0 day before can donate set counting variable to 91.
-            String txt = "   You can donate blood now.   ";
+        } else if (count == 91) {   //when 0 day before user can donate.
+            String txt = "     You can donate in 90 day     ";
             TextView donateIn = (TextView) findViewById(R.id.youcandonate);
             donateIn.setText(txt);
-            editor.putInt("KEY_NAME", 91);
-            editor.apply();
-        } else {                    //after click Done set the day to counting.
+        } else {             //after click Done set the day to counting.
             String txt = "     You can donate in " + String.valueOf(count) + " day     ";
             TextView donateIn = (TextView) findViewById(R.id.youcandonate);
             donateIn.setText(txt);
