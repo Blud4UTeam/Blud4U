@@ -108,7 +108,7 @@
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/birthday"/>
+                android:src="@drawable/cake"/>
             <EditText
                 android:id="@+id/EditTextBirth"
                 android:layout_width="match_parent"
